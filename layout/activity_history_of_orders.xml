@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    tools:context=".Product.History_of_ordersActivity">
+
+    <TextView
+        android:id="@+id/History_of_orders_button"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/cancel" />
+    <TextView
+        android:id="@+id/textHistory_of_orders"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="История ваших заказов"
+        android:layout_marginTop="30dp"
+        android:textColor="@android:color/white"
+        android:textSize="25dp"
+        android:textStyle="bold|italic"
+        android:layout_centerHorizontal="true"/>
+    <ImageView
+        android:id="@+id/imageViewHistory_of_orders"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_below="@+id/textHistory_of_orders"
+        app:srcCompat="@android:drawable/screen_background_light">
+    </ImageView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rs_list_History_of_orders"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_below="@+id/textHistory_of_orders">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</RelativeLayout>

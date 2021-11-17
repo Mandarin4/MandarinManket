@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg">
+
+    <Button
+        android:id="@+id/buttonProductes"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/back" />
+
+    <TextView
+        android:id="@+id/nameUserFormProductes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="15dp"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        android:textStyle="bold|italic" />
+    <TextView
+        android:id="@+id/textProductes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textProductes"
+        android:layout_marginTop="30dp"
+        android:textColor="@android:color/white"
+        android:textSize="25dp"
+        android:textStyle="bold|italic"
+        android:layout_centerHorizontal="true"/>
+    <LinearLayout
+        android:id="@+id/textProductesShops1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textProductes"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/textProductesShops3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Магазин:"
+            android:textColor="@android:color/white"
+            android:textSize="18dp"
+            android:textStyle="bold|italic"
+            android:layout_centerHorizontal="true"/>
+        <TextView
+            android:id="@+id/textProductesShops2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:text="Магазин"
+            android:textColor="@android:color/white"
+            android:textSize="18dp"
+            android:textStyle="bold|italic"
+            android:layout_centerHorizontal="true"/>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageViewProductes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_below="@+id/textProductesShops1"
+        app:srcCompat="@android:drawable/screen_background_light">
+    </ImageView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rs_list_Productes"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_below="@+id/textProductesShops1">
+
+    </androidx.recyclerview.widget.RecyclerView>
+</RelativeLayout>

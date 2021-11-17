@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    tools:context=".UI.Users.FAQActivity">
+
+    <TextView
+        android:id="@+id/FAQ_button_f"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/cancel" />
+    <TextView
+        android:id="@+id/text_FAQ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Часто задаваемые вопросы"
+        android:layout_marginTop="36dp"
+        android:textColor="@android:color/white"
+        android:textSize="25dp"
+        android:textStyle="bold|italic"
+        android:layout_centerHorizontal="true"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rs_list_FAQ"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_below="@+id/text_FAQ"
+        android:background="@android:drawable/screen_background_light">
+
+    </androidx.recyclerview.widget.RecyclerView>
+</RelativeLayout>

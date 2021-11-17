@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    tools:context=".Product.OrdersActivity">
+
+    <TextView
+        android:id="@+id/orders_button"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/cancel" />
+    <TextView
+        android:id="@+id/text_orders"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ваш заказ"
+        android:layout_marginTop="30dp"
+        android:textColor="@android:color/white"
+        android:textSize="25dp"
+        android:textStyle="bold|italic"
+        android:layout_centerHorizontal="true"/>
+    <ImageView
+        android:id="@+id/image_orders"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_below="@+id/text_orders"
+        app:srcCompat="@android:drawable/screen_background_light">
+    </ImageView>
+    <LinearLayout
+        android:id="@+id/liner_orders_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_below="@+id/text_orders">
+        <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Заказ №"
+        android:textColor="@android:color/black"
+        android:textSize="13dp"
+        android:textStyle="italic"
+        android:gravity="center"/>
+    <TextView
+        android:id="@+id/orders_text_price1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="13"
+        android:textColor="@android:color/black"
+        android:textSize="13dp"
+        android:textStyle="italic"
+        android:gravity="center"/>
+    <TextView
+        android:layout_marginLeft="5dp"
+        android:id="@+id/orders_text_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ваш заказ: "
+        android:textColor="@android:color/black"
+        android:textSize="13dp"
+        android:textStyle="italic"
+        android:gravity="center"/>
+    <TextView
+        android:id="@+id/orders_text_status2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Выполнен."
+        android:textColor="@android:color/black"
+        android:textSize="13dp"
+        android:textStyle="italic"
+        android:gravity="center"
+        />
+</LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Доставка: "
+                android:textColor="@android:color/black"
+                android:textSize="13dp"
+                android:textStyle="italic"
+                android:gravity="center"/>
+            <TextView
+                android:id="@+id/orders_text_delivery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="13"
+                android:textColor="@android:color/black"
+                android:textSize="13dp"
+                android:textStyle="italic"
+                android:gravity="center"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/liner_delivery2"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Магнит: "
+                android:textColor="@android:color/black"
+                android:textSize="13dp"
+                android:textStyle="italic"
+                android:gravity="center"/>
+            <TextView
+                android:id="@+id/orders_text_delivery2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="13"
+                android:textColor="@android:color/black"
+                android:textSize="13dp"
+                android:textStyle="italic"
+                android:gravity="center"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/liner_delivery3"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Перекресток: "
+                android:textColor="@android:color/black"
+                android:textSize="13dp"
+                android:textStyle="italic"
+                android:gravity="center"/>
+            <TextView
+                android:id="@+id/orders_text_delivery3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="13"
+                android:textColor="@android:color/black"
+                android:textSize="13dp"
+                android:textStyle="italic"
+                android:gravity="center"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/liner_delivery4"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Пятерочка: "
+                android:textColor="@android:color/black"
+                android:textSize="13dp"
+                android:textStyle="italic"
+                android:gravity="center"/>
+            <TextView
+                android:id="@+id/orders_text_delivery4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="13"
+                android:textColor="@android:color/black"
+                android:textSize="13dp"
+                android:textStyle="italic"
+                android:gravity="center"/>
+
+        </LinearLayout>
+</LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rs_list_orders"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_below="@+id/liner_orders_info">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</RelativeLayout>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:id="@+id/liner_popul"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="5dp"
+        android:background="@android:drawable/screen_background_light">
+        <TextView
+            android:id="@+id/item_populaar_shop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="машизин"/>
+
+        <ImageView
+            android:id="@+id/item_populaar_image"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/item_populaar_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="50"/>
+            <TextView
+                android:layout_marginLeft="2dp"
+                android:id="@+id/item_populaar_price2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="50"
+                android:visibility="gone"/>
+            <TextView
+                android:layout_marginLeft="2dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="руб."/>
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/item_populaar_botton"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="@drawable/btn_add_product"
+            android:src="@drawable/ic_add_shopping"
+            android:padding="2dp"
+            android:layout_marginHorizontal="3dp"
+            android:layout_marginBottom="3dp"
+            android:layout_marginTop="1dp"
+            />
+    </LinearLayout>
+
+</RelativeLayout>

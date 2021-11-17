@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/btn_categories"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:gravity="center_vertical">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Магазин: "
+                android:textColor="@android:color/black"
+                android:textSize="13dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/item_orders_Shops"
+                android:layout_marginStart="5dp"
+                android:gravity="center"
+                android:text="Магазин"
+                android:textColor="@android:color/black"
+                android:textSize="13dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:gravity="center_horizontal"
+                android:layout_marginLeft="520dp"
+                android:text="Товар: "
+                android:textColor="@android:color/black"
+                android:textSize="13dp"/>
+            <TextView
+                android:id="@+id/item_orders_Prod"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:gravity="center_horizontal"
+                android:text="Товар"
+                android:textColor="@android:color/black"
+                android:textSize="13dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:gravity="center_horizontal"
+                android:text="Колличество: "
+                android:textColor="@android:color/black"
+                android:textSize="13dp"/>
+            <TextView
+                android:id="@+id/item_orders_Quan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:gravity="center_horizontal"
+                android:text="Колличество"
+                android:textColor="@android:color/black"
+                android:textSize="13dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:gravity="center_horizontal"
+                android:text="шт."
+                android:textColor="@android:color/black"
+                android:textSize="13dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout >

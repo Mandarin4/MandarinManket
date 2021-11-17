@@ -1,0 +1,278 @@
+package com.example.mandarinmarket.Model;
+
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.mandarinmarket.PeremennyeActivity;
+import com.example.mandarinmarket.Product.DescriptionActivity;
+import com.example.mandarinmarket.UI.Users.RegicterActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import static com.example.mandarinmarket.R.drawable;
+import static com.example.mandarinmarket.R.id;
+import static com.example.mandarinmarket.R.layout;
+
+public class Myadapter_promotions extends RecyclerView.Adapter<Myadapter_promotions.myviewholder>{
+    ArrayList<Productes_model> datalist;
+    Context context;
+    Boolean bool = true;
+    Boolean bool2 = true;
+    String ownerId;
+    DatabaseReference databasePropertyData = null;
+    FirebaseDatabase db;
+    DatabaseReference root;
+
+
+    public Myadapter_promotions(Context context, ArrayList<Productes_model> datalist){
+        this.datalist = datalist;
+        this.context = context;
+    }
+
+    @NonNull
+    @Override
+    public myviewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view= LayoutInflater.from(context).inflate(layout.item_productes2, parent, false);
+        return new myviewholder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull final myviewholder holder, final int position) {
+        final Productes_model productesmodel =  datalist.get(position);
+        final FirebaseUser user = PeremennyeActivity.mAuth.getCurrentUser();
+        final String Email2 = RegicterActivity.removeChar(user.getEmail().toString(),'.');
+        final DatabaseReference RootRef = FirebaseDatabase.getInstance().getReference();
+        db = FirebaseDatabase.getInstance();
+       // PeremennyeActivity.datalistshop2=new ArrayList<>();
+
+        root = db.getReference().child("Shops").child("Shop").child(PeremennyeActivity.Shops2.get(position));
+        root.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot2) {
+                //for(DataSnapshot dataSnapshot2 : snapshot2.getChildren()) {
+                Shops_model shops_model = snapshot2.getValue(Shops_model.class);
+                holder.t9.setText(shops_model.getNameShop().toString());
+                PeremennyeActivity.datalistshop2.add(shops_model);
+                System.out.println("\n\n\n//////"+shops_model.toString());
+                //System.out.println("\n\n\n//////"+PeremennyeActivity.datalistshop.size());
+                //  datalist3.add(shops_model);
+                //Toast.makeText(getActivity(), shops_model.getNameShop().toString(), Toast.LENGTH_SHORT);
+
+                // }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        final DatabaseReference RootRef3 = FirebaseDatabase.getInstance().getReference().child("Users").child(Email2).child("Favorites");
+        RootRef3.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    for (DataSnapshot snapshott : snapshot.getChildren()) {
+                        if (snapshott.getKey().toString().equals("IdProductFavorites") && snapshott.getValue().toString().equals(productesmodel.getIdProduct().toString())) {
+                            holder.t6.setImageResource(drawable.ic_favorite2);
+                        }
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        holder.t2.setText(productesmodel.getName());
+        if(productesmodel.getDiscount_price()==0) {
+            holder.t3.setText(productesmodel.getPrice().toString());
+            holder.t7.setVisibility(View.GONE);
+        }
+        else {
+            holder.t3.setText(productesmodel.getPrice().toString());
+            holder.t3.setPaintFlags(holder.t3.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            holder.t3.setTextColor(Color.RED);
+            holder.t7.setText(productesmodel.getDiscount_price().toString());
+            holder.t7.setVisibility(View.VISIBLE);
+        }
+        holder.t4.setText(productesmodel.getSht());
+        Picasso.get().load(productesmodel.getSrcImage()).into(holder.t1);
+        holder.t5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                PeremennyeActivity.Products = productesmodel.getNameP();
+                bool = true;
+                final DatabaseReference RootRef2 = FirebaseDatabase.getInstance().getReference().child("Users").child(Email2).child("Basket");
+                RootRef2.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
+                            for (DataSnapshot snapshott : snapshot.getChildren()) {
+                                if (snapshott.getKey().equals("IdProductBasket") && snapshott.getValue().equals(productesmodel.getIdProduct().toString())) {
+                                    bool = false;
+                                    Integer re = Integer.parseInt(String.valueOf(snapshot.child("Quantity").getValue(Integer.class)));
+                                    RootRef.child("Users").child(Email2).child("Basket").child(snapshot.getKey()).child("Quantity").setValue(re +1);
+                                    Toast.makeText(context, productesmodel.getName() +" добавлено в корзину!", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+                RootRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(bool){
+                            databasePropertyData =  FirebaseDatabase.getInstance().getReference("Users");
+                            ownerId = databasePropertyData.push().getKey();
+                            final HashMap<String, Object> UserDataMap = new HashMap<>();
+                            UserDataMap.put("Shops", PeremennyeActivity.datalistshop2.get(position).getName());
+                            UserDataMap.put("ShopsName", PeremennyeActivity.datalistshop2.get(position).getNameShop());
+                            UserDataMap.put("Id", ownerId);
+                            UserDataMap.put("Categories", PeremennyeActivity.Categoriya2.get(position));
+                            UserDataMap.put("Productes", PeremennyeActivity.Products);
+                            UserDataMap.put("Quantity", 1);
+                            UserDataMap.put("IdProductBasket", productesmodel.getIdProduct().toString());
+                            RootRef.child("Users").child(Email2).child("Basket").child(ownerId).updateChildren(UserDataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(context, productesmodel.getName() +" добавлено в корзину!", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(context, productesmodel.getName() +" не добавлено в корзину!", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                        }
+                    }
+                   @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                    }
+                });
+                PeremennyeActivity.addClickEffect(holder.t5);
+            }
+        });
+        holder.t6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PeremennyeActivity.addClickEffect(holder.t6);
+                bool2 = true;
+                final DatabaseReference RootRef2 = FirebaseDatabase.getInstance().getReference().child("Users").child(Email2).child("Favorites");
+                RootRef2.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                            for (DataSnapshot snapshott : snapshot.getChildren()) {
+                                if (snapshott.getKey().toString().equals("IdProductFavorites") && snapshott.getValue().toString().equals(productesmodel.getIdProduct().toString())) {
+                                    bool2 = false;
+                                    RootRef.child("Users").child(Email2).child("Favorites").child(snapshot.getKey()).removeValue();
+                                    Toast.makeText(context, productesmodel.getName() + " удалено из избранного!", Toast.LENGTH_SHORT).show();
+                                    holder.t6.setImageResource(drawable.ic_favorite_border);
+                                }
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+                RootRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (bool2){
+                            databasePropertyData =  FirebaseDatabase.getInstance().getReference("Users").child(Email2).child("Favorites");
+                            ownerId = databasePropertyData.push().getKey();
+                            final HashMap<String, Object> UserDataMap = new HashMap<>();
+                            UserDataMap.put("IdProductFavorites", productesmodel.getIdProduct());
+                            UserDataMap.put("ShopsName", PeremennyeActivity.datalistshop2.get(position).getNameShop());
+                            UserDataMap.put("Shops", PeremennyeActivity.datalistshop2.get(position).getName());
+                            UserDataMap.put("Categories", PeremennyeActivity.Categoriya2.get(position).toString());
+                            RootRef.child("Users").child(Email2).child("Favorites").child(ownerId).updateChildren(UserDataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(context, productesmodel.getName() +" добавлено в избранное!", Toast.LENGTH_SHORT).show();
+                                        holder.t6.setImageResource(drawable.ic_favorite2);
+                                    } else {
+                                        Toast.makeText(context, productesmodel.getName() +" не добавлено в избранное!", Toast.LENGTH_SHORT).show();
+                                        holder.t6.setImageResource(drawable.ic_favorite_border);
+                                    }
+                                }
+                            });
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                    }
+                });
+
+            }
+        });
+        holder.t8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PeremennyeActivity.productesmodel = productesmodel;
+                PeremennyeActivity.addClickEffect(holder.t8);
+                PeremennyeActivity.Shops = PeremennyeActivity.Shops2.get(position);
+                PeremennyeActivity.Categoriya = PeremennyeActivity.Categoriya2.get(position);
+                PeremennyeActivity.ShopsName = PeremennyeActivity.datalistshop2.get(position).getNameShop();
+                Intent DescriptionActivity = new Intent(Myadapter_promotions.this.context, DescriptionActivity.class);
+                holder.t8.getContext().startActivity(DescriptionActivity);
+
+            }
+        });
+    }
+
+    @Override
+    public int getItemCount() {
+        return datalist.size();
+    }
+
+    class myviewholder extends RecyclerView.ViewHolder{
+        ImageView t1, t6;
+        TextView t2,t3,t4, t5,t7,t9;
+        LinearLayout t8;
+        public  myviewholder(@NonNull View itemView){
+            super(itemView);
+            t1 = itemView.findViewById(id.item_image_prod);
+            t2 = itemView.findViewById(id.itemtextnameproduct);
+            t3 = itemView.findViewById(id.price2_item_products);
+            t4 = itemView.findViewById(id.price4_item_products);
+            t5 = itemView.findViewById(id.itemtextbottomproduct);
+            t6 = itemView.findViewById(id.item_prod_favorites);
+            t7 = itemView.findViewById(id.discount_price_item_products);
+            t8 = itemView.findViewById(id.liner_product);
+            t9 = itemView.findViewById(id.text_product2);
+        }
+    }
+}

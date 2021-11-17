@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/liner_favor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/btn_categories"
+        android:orientation="horizontal"
+        android:padding="10dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+            <TextView
+                android:id="@+id/nameShops_item_favorites"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Магазин"
+                android:textColor="@android:color/black"
+                android:textSize="14dp"
+                android:textStyle="bold|italic"
+                android:gravity="center"
+                />
+            <ImageView
+                android:id="@+id/item_image_favorites"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="7dp"
+                tools:srcCompat="@tools:sample/avatars" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="right">
+                <ImageView
+                    android:id="@+id/item_favorites_favorites"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="@drawable/ic_favorite2"
+                    android:layout_marginEnd="5dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/item_text_nameproduct_favorites"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="name pkdsfd555555555"
+                    android:textColor="@android:color/black"
+                    android:textSize="18dp"
+                    android:textStyle="bold|italic" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginTop="10dp">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12dp"
+                        android:id="@+id/price_item_products_favorites"
+                        android:text="Цена:"
+                        android:textColor="@android:color/black"
+                        android:textSize="14dp"
+                        android:textStyle="bold|italic"
+                        android:gravity="center" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:id="@+id/price2_item_products_favorites"
+                        android:text="200"
+                        android:textColor="@android:color/black"
+                        android:textSize="14dp"
+                        android:textStyle="bold|italic" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:id="@+id/discount_price_item_favorites"
+                        android:text="200"
+                        android:textColor="@android:color/black"
+                        android:textSize="14dp"
+                        android:textStyle="bold|italic"
+                        android:visibility="gone" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:text="руб."
+                        android:textColor="@android:color/black"
+                        android:textSize="14dp"
+                        android:textStyle="bold|italic" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12dp"
+                        android:id="@+id/price3_item_products_favorites"
+                        android:text="за"
+                        android:textColor="@android:color/black"
+                        android:textSize="14dp"
+                        android:textStyle="bold|italic" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12dp"
+                        android:id="@+id/price4_item_products_favorites"
+                        android:text="100 грамм"
+                        android:textColor="@android:color/black"
+                        android:textSize="14dp"
+                        android:textStyle="bold|italic" />
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/item_text_bottom_favorites"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:gravity="center"
+                    android:text="@string/itemtextproduct"
+                    android:textColor="@android:color/holo_green_light"
+                    android:textSize="14dp"
+                    android:textStyle="bold|italic"
+                    android:background="@drawable/btn_add_product"
+                    android:padding="6dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

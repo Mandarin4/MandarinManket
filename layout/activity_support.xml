@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    tools:context=".UI.Users.SupportActivity">
+
+    <TextView
+        android:id="@+id/About_Company_button"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/cancel" />
+    <TextView
+        android:id="@+id/text_About_Company"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Мы в соц.сетях"
+        android:layout_marginTop="30dp"
+        android:textColor="@android:color/white"
+        android:textSize="25dp"
+        android:textStyle="bold|italic"
+        android:layout_centerHorizontal="true"/>
+    <ImageView
+        android:id="@+id/imageView_About_Company"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_below="@+id/text_About_Company"
+        app:srcCompat="@android:drawable/screen_background_light">
+    </ImageView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_below="@+id/text_About_Company"
+        android:orientation="vertical"
+        android:gravity="center">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/vk_logo"
+                android:autoLink="web"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:background="@drawable/vk_logo"
+                android:clickable="true"/>
+            <TextView
+                android:id="@+id/whatsapp_logo"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:background="@drawable/whatsapp_logo"
+                android:layout_marginLeft="20dp"
+                android:autoLink="web"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="20dp">
+            <TextView
+                android:id="@+id/telegram_messenger"
+                android:autoLink="web"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:background="@drawable/telegram_messenger"/>
+            <TextView
+                android:id="@+id/odnoklassniki_logo"
+                android:autoLink="web"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:background="@drawable/odnoklassniki_logo"
+                android:layout_marginLeft="20dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="20dp">
+            <TextView
+                android:id="@+id/logo_mail"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:background="@drawable/logo_mail"
+                android:autoLink="email"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Номер телефона для связи:"
+                android:textColor="@android:color/black"
+                android:textSize="15dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autoLink="phone"
+                android:text="+7 (951) 524-98-32"
+                android:textColor="@android:color/black"
+                android:textSize="15dp" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

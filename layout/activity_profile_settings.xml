@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    tools:context=".UI.Users.ProfileSettingsActivity">
+
+    <TextView
+        android:id="@+id/ProfileSettings_button"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/cancel" />
+    <TextView
+        android:id="@+id/text_ProfileSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Настройки профиля"
+        android:layout_marginTop="30dp"
+        android:textColor="@android:color/white"
+        android:textSize="25dp"
+        android:textStyle="bold|italic"
+        android:layout_centerHorizontal="true"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_below="@+id/text_ProfileSettings"
+        android:background="@android:drawable/screen_background_light"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Личные данные"
+            android:textSize="20dp"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:layout_marginLeft="5dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="18dp"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/user_name"
+                    android:textColor="@android:color/black"
+                    android:textSize="13dp"
+                    />
+                <TextView
+                    android:id="@+id/txt_user_name_ProfileSettings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="User Name"
+                    android:textSize="13dp"
+                    android:layout_weight="0.90"
+                    />
+                <ImageView
+                    android:id="@+id/ic_create1"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/ic_create" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="6dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/user_email_gmail_com"
+                    android:textColor="@android:color/black"
+                    android:textSize="13dp"
+
+                    />
+                <TextView
+                    android:id="@+id/txt_user_email_ProfileSettings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="user.email@gmail.com"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="13dp"
+                    android:layout_weight="0.90"
+                    />
+                <ImageView
+                    android:id="@+id/ic_create2"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/ic_create" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="6dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/phone_user_inf"
+                    android:textColor="@android:color/black"
+                    android:textSize="13dp" />
+                <TextView
+                    android:id="@+id/txt_user_phone_ProfileSettings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="08123456789"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="13dp"
+                    android:layout_weight="0.90"
+                    />
+                <ImageView
+                    android:id="@+id/ic_create3"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/ic_create" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="6dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Адрес пользователя: "
+                    android:textColor="@android:color/black"
+                    android:textSize="13dp" />
+                <TextView
+                    android:id="@+id/txt_adress_ProfileSettings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="Hjcnjd"
+                    android:textSize="13dp"
+                    android:layout_weight="0.90"
+                    />
+                <ImageView
+                    android:id="@+id/ic_create4"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/ic_create" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/ProfileSettings_button_pass"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn_categories"
+            android:text="Сменить пароль"
+            android:textAllCaps="false" />
+
+        <TextView
+            android:id="@+id/delete_akaunt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/btn_del_product"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="Удалить аккаунт"
+            android:textColor="@android:color/holo_red_dark"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</RelativeLayout>
